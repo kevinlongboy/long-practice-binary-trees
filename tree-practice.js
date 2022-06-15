@@ -20,18 +20,18 @@ function findMinBT(rootNode) {
   let min = rootNode.val
   const queue = []
   queue.push(rootNode)
-  while(queue.length > 0){
+  while (queue.length > 0) {
     let value = queue.shift()
-    if (min > value.val){
+    if (min > value.val) {
       min = value.val
     }
-    if(value.left){
-    queue.push(value.left)
+    if (value.left) {
+      queue.push(value.left)
     }
-    if(value.right){
-    queue.push(value.right)
+    if (value.right) {
+      queue.push(value.right)
     }
-    
+
   }
   return min
 }
@@ -60,14 +60,14 @@ function getHeight(rootNode) {
   const queue = []
   queue.push(rootNode)
   let height = -1
-  while(queue.length > 0){
+  while (queue.length > 0) {
     let length = queue.length
-    for(let i = 0; i < length; i++){
+    for (let i = 0; i < length; i++) {
       let value = queue.shift()
-      if (value.left){
+      if (value.left) {
         queue.push(value.left)
       }
-      if (value.right){
+      if (value.right) {
         queue.push(value.right)
       }
     }
@@ -96,7 +96,40 @@ function countNodes(rootNode) {
 }
 
 function balancedTree(rootNode) {
-  // Your code here
+
+
+  return Math.log2(countNodes(rootNode)) > getHeight(rootNode);
+
+  // let minNodes = [1, 1, 2, ]
+  // go through each level
+  // check if that level has the minimum amount of nodes to qualify as balanced
+  // if so, move to next level
+  // if not, immediately return false
+  // when there are no more levels return
+
+
+  // let rightCount = 0;
+  // let leftCount = 0;
+
+  // let curLeft = rootNode;
+  // let curRight = rootNode;
+
+  // while (curLeft) {
+  //   if (curLeft.left) {
+  //     curLeft = curLeft.next;
+  //     leftCount++;
+  //   }
+  // }
+
+  // while (curRight) {
+  //   if (curRight.right) {
+  //     curRight = curRight.next;
+  //     rightCount++;
+  //   }
+  // }
+
+  // if ((rightCount - leftCount === 1 || 0) || (leftCount - rightCount === 1 || 0)) return true;
+  // else return false
 }
 
 function getParentNode(rootNode, target) {
