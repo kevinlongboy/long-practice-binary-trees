@@ -37,7 +37,23 @@ function findMinBT(rootNode) {
 }
 
 function findMaxBT(rootNode) {
-  // Your code here
+  let max = rootNode.val
+  const queue = []
+  queue.push(rootNode)
+  while (queue.length > 0) {
+    let value = queue.shift()
+    if (max < value.val) {
+      max = value.val
+    }
+    if (value.left) {
+      queue.push(value.left)
+    }
+    if (value.right) {
+      queue.push(value.right)
+    }
+
+  }
+  return max
 }
 
 function getHeight(rootNode) {
