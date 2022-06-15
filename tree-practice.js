@@ -17,7 +17,23 @@ function findMaxBST(rootNode) {
 }
 
 function findMinBT(rootNode) {
-  // Your code here
+  let min = rootNode.val
+  const queue = []
+  queue.push(rootNode)
+  while(queue.length > 0){
+    let value = queue.shift()
+    if (min > value.val){
+      min = value.val
+    }
+    if(value.left){
+    queue.push(value.left)
+    }
+    if(value.right){
+    queue.push(value.right)
+    }
+    
+  }
+  return min
 }
 
 function findMaxBT(rootNode) {
