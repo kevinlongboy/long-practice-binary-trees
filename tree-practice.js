@@ -97,8 +97,7 @@ function countNodes(rootNode) {
 
 function balancedTree(rootNode) {
 
-
-  return Math.log2(countNodes(rootNode)) > getHeight(rootNode);
+  return Math.log2(countNodes(rootNode)) >= getHeight(rootNode);
 
   // let minNodes = [1, 1, 2, ]
   // go through each level
