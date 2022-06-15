@@ -57,7 +57,24 @@ function findMaxBT(rootNode) {
 }
 
 function getHeight(rootNode) {
-  
+  const queue = []
+  queue.push(rootNode)
+  let height = -1
+  while(queue.length > 0){
+    let length = queue.length
+    for(let i = 0; i < length; i++){
+      let value = queue.shift()
+      if (value.left){
+        queue.push(value.left)
+      }
+      if (value.right){
+        queue.push(value.right)
+      }
+    }
+    height++
+
+  }
+  return height
 }
 
 function countNodes(rootNode) {
