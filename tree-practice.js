@@ -132,7 +132,22 @@ function balancedTree(rootNode) {
 }
 
 function getParentNode(rootNode, target) {
-  // Your code here
+  if (rootNode.val === target) return null
+
+  const stack = [rootNode]
+
+  while(stack.length){
+    const current = stack.pop()
+
+      if(( current.left && current.left.val || current.right && current.right.val) === target){
+        return current
+      }
+
+    if(current.left) stack.push(current.left)
+    if (current.right) stack.push(current.right)
+
+  }
+  return undefined
 }
 
 function inOrderPredecessor(rootNode, target) {
