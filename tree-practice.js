@@ -62,7 +62,7 @@ function getHeight(rootNode) {
   let height = -1
   while (queue.length > 0) {
     let length = queue.length
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < lengtch; i++) {
       let value = queue.shift()
       if (value.left) {
         queue.push(value.left)
